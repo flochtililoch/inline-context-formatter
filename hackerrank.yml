@@ -1,0 +1,10 @@
+version: 1.0
+configuration:
+  has_webserver: true
+  ide_config:
+    default_open_files:
+      - src/index.ts
+      - test/index.test.ts
+    project_menu:
+      install: yarn
+      test: npx jest
