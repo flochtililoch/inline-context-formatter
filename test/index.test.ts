@@ -4,27 +4,19 @@ import { formatter, Node } from "../src";
 import { parse } from "./helpers";
 import { describe, expect, test } from "@jest/globals";
 
-describe("formatter", () => {
+describe("Inline context formatter", () => {
   test("1", () => {
+    const node: Node = parse(`<h1>      Hello      World!     </h1>`);
+
+    expect(formatter(node)).toEqual("Hello World!");
+  });
+
+  test("2", () => {
     const node: Node = parse(
-      `<text>
-        <text>
-          <text>   </text>
-          <text>   </text>
-          <text>
-            Hello
-          </text>
-          <text>
-            World
-          </text>
-        </text>
-        <text>
-          of Instawork!
-        </text>
-        <text> </text>
-      </text>`
+      `<h1>   Hello
+      <span> World!</span>   </h1>`
     );
 
-    expect(formatter(node)).toEqual("Hello World of Instawork!");
+    expect(formatter(node)).toEqual("Hello World!");
   });
 });
