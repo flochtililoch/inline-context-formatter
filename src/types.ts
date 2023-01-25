@@ -16,6 +16,5 @@ export enum NodeType {
 export interface Node {
   childNodes: Node[];
   nodeType: NodeType;
-  nodeValue: string;
-  getElementById: (id: string) => Node | null;
+  nodeValue: string | null;
 }

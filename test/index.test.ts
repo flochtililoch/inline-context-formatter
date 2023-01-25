@@ -19,4 +19,24 @@ describe("Inline context formatter", () => {
 
     expect(formatter(node)).toEqual("Hello World!");
   });
+
+  test("3", () => {
+    const node: Node = parse(
+      `<h1>   Hello
+      <span> World<span>!</span></span>   </h1>`
+    );
+    expect(formatter(node)).toEqual("Hello World!");
+  });
+
+  test("4", () => {
+    const node: Node = parse(
+      `<h1>
+         Hello
+         <span>
+           World<em>!</em>
+         </span>
+       </h1>`
+    );
+    expect(formatter(node)).toEqual("Hello World!");
+  });
 });
